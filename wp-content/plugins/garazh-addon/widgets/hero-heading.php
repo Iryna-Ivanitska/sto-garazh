@@ -6,7 +6,7 @@ class HeroHeading extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__( 'Hero Heading', 'test-addon' );
+        return esc_html__( 'Hero Heading', 'garazh' );
     }
 
     public function get_icon() {
@@ -14,7 +14,7 @@ class HeroHeading extends \Elementor\Widget_Base {
     }
 
     public function get_categories() {
-        return [ 'test_addon' ];
+        return [ 'garazh_addon' ];
     }
 
     public function get_keywords() {
@@ -32,32 +32,31 @@ class HeroHeading extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__( 'Content', 'test-addon' ),
+                'label' => esc_html__( 'Content', 'garazh' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
 
-
         $this->add_control(
             'list',
             [
-                'label' => esc_html__( 'List', 'textdomain' ),
+                'label' => esc_html__( 'List', 'garazh' ),
                 'type' => \Elementor\Controls_Manager::REPEATER,
                 'fields' => [
                     [
                         'name' => 'title',
-                        'label' => esc_html__( 'Title', 'test-addon' ),
+                        'label' => esc_html__( 'Title', 'garazh' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => esc_html__( 'Item 1', 'test-addon' ),
+                        'default' => esc_html__( 'Item 1', 'garazh' ),
                     ],
                     [
                         'name'=> 'subtitle',
-                        'label' => esc_html__( 'Subtitle', 'test-addon' ),
+                        'label' => esc_html__( 'Subtitle', 'garazh' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
                     ],
                     [
                         'name'=>'bg_image',
-                        'label' => esc_html__( 'Background Image', 'test-addon' ),
+                        'label' => esc_html__( 'Background Image', 'garazh' ),
                         'type' => \Elementor\Controls_Manager::MEDIA,
                         'default' => [
                             'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -65,44 +64,35 @@ class HeroHeading extends \Elementor\Widget_Base {
                     ],
                     [
                         'name'=>'image',
-                        'label' => esc_html__( 'Choose Image', 'test-addon' ),
+                        'label' => esc_html__( 'Choose Image', 'garazh' ),
                         'type' => \Elementor\Controls_Manager::MEDIA,
                         'default' => [
                             'url' => \Elementor\Utils::get_placeholder_image_src(),
                         ],
+                    ],
+                    [
+                        'name'=>'btn-text',
+                        'label' => esc_html__( 'Button text', 'garazh' ),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'placeholder' => esc_html__( 'Click me', 'garazh' ),
+                        'default' => esc_html__( 'Click me', 'garazh' ),
+                    ],
+                    [
+                        'name'=>'btn-link',
+                        'label' => esc_html__( 'Button text', 'garazh' ),
+                        'type' => \Elementor\Controls_Manager::URL,
                     ]
             ],
                 'title_field' => '{{{ title }}}'
         ]);
 
-
         $this->end_controls_section();
-
 
         // Content Tab End
-
-
-
-
-        // Start style tab
-        $this->start_controls_section(
-            'section_style',
-            [
-                'label' => esc_html__( 'Style', 'test-addon' ),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // End style tab
-
     }
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-
-
         ?>
 
         <!-- Carousel Start -->
@@ -118,7 +108,7 @@ class HeroHeading extends \Elementor\Widget_Base {
                                     <div class="col-10 col-lg-7 text-center text-lg-start">
                                         <h6 class="text-white text-uppercase mb-3 animated slideInDown">// <?= $item['subtitle'] ?> //</h6>
                                         <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown"><?= $item['title'] ?></h1>
-                                        <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                        <a href="<?= $item['btn-link']['url'] ?>" class="btn btn-primary py-3 px-5 animated slideInDown"><?= $item['btn-text'] ?><i class="fa fa-arrow-right ms-3"></i></a>
                                     </div>
                                     <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
                                         <img class="img-fluid" src="<?= $item['image']['url'] ?>" alt="">

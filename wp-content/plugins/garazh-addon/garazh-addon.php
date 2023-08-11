@@ -1,21 +1,20 @@
 <?php
 
-
 /**
- * Plugin Name: Test Addon
+ * Plugin Name: Garazh Addon
  * Description: Custom Elementor addon.
  * Version:     1.0.0
  * Author:      Iryna Ivanytska
- * Text Domain: test-addon
+ * Text Domain: garazh
  */
 
-function test_addon() {
+function garazh_addon() {
 
     // Load plugin file
     require_once( __DIR__ . '/plugin.php' );
 
-    \Test_Addon\Plugin::instance();
+   \Garazh_Addon\Plugin::instance();
 
 }
 
-add_action( 'plugins_loaded', 'test_addon' );
+add_action( 'plugins_loaded', 'garazh_addon' );

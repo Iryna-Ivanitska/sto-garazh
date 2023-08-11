@@ -1,5 +1,5 @@
 <?php
-namespace Test_Addon;
+namespace Garazh_Addon;
 
 final class Plugin {
 
@@ -79,9 +79,9 @@ final class Plugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor */
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'elementor-test-addon' ),
-            '<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test-addon' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'elementor-test-addon' ) . '</strong>'
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'garazh' ),
+            '<strong>' . esc_html__( 'Elementor Test Addon', 'garazh' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'garazh' ) . '</strong>'
         );
 
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -94,9 +94,9 @@ final class Plugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-test-addon' ),
-            '<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test-addon' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'elementor-test-addon' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'garazh' ),
+            '<strong>' . esc_html__( 'Elementor Test Addon', 'garazh' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'garazh' ) . '</strong>',
             self::MINIMUM_ELEMENTOR_VERSION
         );
 
@@ -110,9 +110,9 @@ final class Plugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-test-addon' ),
-            '<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test-addon' ) . '</strong>',
-            '<strong>' . esc_html__( 'PHP', 'elementor-test-addon' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'garazh' ),
+            '<strong>' . esc_html__( 'Elementor Test Addon', 'garazh' ) . '</strong>',
+            '<strong>' . esc_html__( 'PHP', 'garazh' ) . '</strong>',
             self::MINIMUM_PHP_VERSION
         );
 
@@ -130,17 +130,10 @@ final class Plugin {
 
     function add_elementor_widget_categories( $elements_manager ) {
 
-//        $elements_manager->add_category(
-//            'test_addon',
-//            [
-//                'title' => esc_html__( 'Test Addon', 'test-addon' ),
-//                'icon' => 'fa fa-plug',
-//            ]
-//        );
         $categories = [];
-        $categories['test_addon'] =
+        $categories['garazh_addon'] =
             [
-                'title' => esc_html__( 'Test Addon', 'test-addon' ),
+                'title' => esc_html__( 'Garazh Addon', 'garazh' ),
                 'icon'  => 'fa fa-plug'
             ];
 
